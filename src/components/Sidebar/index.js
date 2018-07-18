@@ -4,6 +4,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import Navitem from './NavItem'
 import SidebarBottom from './SidebarBottom'
+import { Link, withRouter } from 'react-router-dom'
 
 const SidebarContainer = styled.div`
   z-index: 100;
@@ -37,6 +38,17 @@ const SidebarTop = styled.div`
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 20px 0px;
 `
 
+const SubItem = styled.li`
+  background-color: #171a1c;
+  padding: 5px;
+  list-style-type: none;
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+  }
+  ${props => props.active && 'color: #fff'};
+`
+
 class Sidebar extends React.Component {
   render() {
     return (
@@ -47,9 +59,49 @@ class Sidebar extends React.Component {
         <PerfectScrollbar>
           <div>
             <MenuList>
-              <Navitem text="Home" to="/" icon="fa fa-home" />
-              <Navitem text="Forms" to="/forms" icon="fa fa-edit" />
-              <Navitem text="About" to="/about" icon="fa fa-user" />
+              {this.props.menu.map(m => {
+                const isaSubItemsActive =
+                  m.subitems &&
+                  m.subitems
+                    .map(i => i.to)
+                    .filter(i => this.props.location.pathname.startsWith(i))
+                    .length >= 1
+                if (m.subitems)
+                  return (
+                    <Navitem
+                      active={isaSubItemsActive}
+                      text={m.text}
+                      icon={m.icon}
+                      multi
+                    >
+                      <React.Fragment>
+                        {m.subitems.map(s => (
+                          <Link
+                            to={s.to}
+                            style={{ textDecoration: 'none', color: 'inherit' }}
+                          >
+                            <SubItem
+                              style={{ marginRight: '15px' }}
+                              active={this.props.location.pathname.startsWith(
+                                s.to
+                              )}
+                            >
+                              <i
+                                className="fa fa-angle-right "
+                                style={{
+                                  fontSize: '11px',
+                                  paddingRight: '5px'
+                                }}
+                              />
+                              {s.text}
+                            </SubItem>
+                          </Link>
+                        ))}
+                      </React.Fragment>
+                    </Navitem>
+                  )
+                return <Navitem text={m.text} to={m.to} icon={m.icon} />
+              })}
             </MenuList>
           </div>
         </PerfectScrollbar>
@@ -59,4 +111,4 @@ class Sidebar extends React.Component {
   }
 }
 
-export default Sidebar
+export default withRouter(Sidebar)
