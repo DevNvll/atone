@@ -22,7 +22,8 @@ const HeaderContainer = styled.div`
   color: #676767;
   background-color: #fff;
   font-size: 15px;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 1000;
   height: 56px;
   margin-bottom: 1.7rem;
