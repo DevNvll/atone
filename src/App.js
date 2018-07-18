@@ -11,19 +11,20 @@ import PageAbout from './pages/About'
 import PageForms from './pages/Forms'
 
 const Container = styled.div`
-  background-color: rgb(246, 250, 255);
-  width: 100%;
-  min-height: 500px;
-  height: 100vh;
   display: grid;
   grid-template-columns: 240px 1fr;
+  background-color: rgb(246, 250, 255);
+  height: 100vh;
 `
 
 const Content = styled.div`
   height: inherit;
   min-height: inherit;
   overflow: auto;
-  padding: 0 20px 20px;
+`
+
+const PageContent = styled.div`
+  padding: 25px;
 `
 
 class App extends Component {
@@ -41,17 +42,17 @@ class App extends Component {
     return (
       <Container>
         <Sidebar title="Atone" />
-        <div>
-          <Loading loading={this.state.loading} />
+
+        <Content id="page-wrap">
           <Header />
-          <Content>
+          <PageContent>
             <Switch>
               <Route exact path="/" component={PageHome} />
               <Route exact path="/about" component={PageAbout} />
               <Route exact path="/forms" component={PageForms} />
             </Switch>
-          </Content>
-        </div>
+          </PageContent>
+        </Content>
       </Container>
     )
   }
