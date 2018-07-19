@@ -45,8 +45,27 @@ const SubItem = styled.li`
   cursor: pointer;
   &:hover {
     color: #fff;
+    background-color: #1e2226;
   }
   ${props => props.active && 'color: #fff'};
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding-left: 44px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #93a3af;
+  -webkit-transition-property: color, background;
+  transition-property: color, background;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+`
+
+const DropDownMenu = styled.ul`
+  margin: 0;
+  padding: 0;
 `
 
 class Sidebar extends React.Component {
@@ -74,30 +93,22 @@ class Sidebar extends React.Component {
                       icon={m.icon}
                       multi
                     >
-                      <React.Fragment>
+                      <DropDownMenu>
                         {m.subitems.map(s => (
                           <Link
                             to={s.to}
                             style={{ textDecoration: 'none', color: 'inherit' }}
                           >
                             <SubItem
-                              style={{ marginRight: '15px' }}
                               active={this.props.location.pathname.startsWith(
                                 s.to
                               )}
                             >
-                              <i
-                                className="fa fa-angle-right "
-                                style={{
-                                  fontSize: '11px',
-                                  paddingRight: '5px'
-                                }}
-                              />
                               {s.text}
                             </SubItem>
                           </Link>
                         ))}
-                      </React.Fragment>
+                      </DropDownMenu>
                     </Navitem>
                   )
                 return <Navitem text={m.text} to={m.to} icon={m.icon} />

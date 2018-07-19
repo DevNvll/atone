@@ -33,7 +33,7 @@ class NavItem extends React.Component {
   render() {
     const { text, to, icon, location, multi, active } = this.props
     return (
-      <div>
+      <React.Fragment>
         {(!multi && (
           <Link style={{ textDecoration: 'none', color: '#fff' }} to={to}>
             <MenuItem active={location.pathname === to}>
@@ -76,11 +76,9 @@ class NavItem extends React.Component {
           isOpen={this.state.open || active}
           style={{ backgroundColor: '#171a1c' }}
         >
-          <ul style={{ margin: 0, padding: 0, marginLeft: '5px' }}>
-            {this.props.children}
-          </ul>
+          <ul style={{ margin: 0, padding: 0 }}>{this.props.children}</ul>
         </Collapse>
-      </div>
+      </React.Fragment>
     )
   }
 }
