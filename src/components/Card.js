@@ -1,22 +1,53 @@
 import styled from 'styled-components'
 
-export const Card = styled.div`
-  background-color: #fff;
-  border-radius: 4px;
-  width: 100%;
-
-  -webkit-box-shadow: 0 10px 15px rgba(50, 50, 93, 0.1),
-    0 5px 15px rgba(0, 0, 0, 0.07);
-  box-shadow: 0 10px 15px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+export const CardContainer = styled.div`
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: white;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  border: none;
+  -webkit-box-shadow: 0 2px 4px rgba(5, 15, 44, 0.1);
+  box-shadow: 0 2px 4px rgba(5, 15, 44, 0.1);
+  margin-bottom: 20px;
 `
 export const CardBody = styled.div`
-  padding: 10px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
 `
 
 export const CardHeader = styled.div`
-  border-bottom: 1px solid #f4f4f4;
-  color: #444;
-  display: block;
-  padding: 10px;
-  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: rgba(247, 247, 255, 0.2);
+  border-bottom: 1px solid #f7f7ff;
+  overflow: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
 `
+export default {
+  Container: CardContainer,
+  Header: CardHeader,
+  Body: CardBody
+}

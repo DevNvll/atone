@@ -13,7 +13,7 @@ import PageForms from './pages/Forms'
 const Container = styled.div`
   display: grid;
   grid-template-columns: 240px 1fr;
-  background-color: #fff;
+  background-color: #f8faff;
   height: 100vh;
 `
 

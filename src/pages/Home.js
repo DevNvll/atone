@@ -10,7 +10,7 @@ import {
   Button
 } from 'reactstrap'
 
-import { Card, CardBody, CardHeader } from '../components/Card'
+import Card from '../components/Card'
 
 const PhotoGrid = styled.div`
   line-height: 0;
@@ -50,11 +50,11 @@ function getRandomSize(min, max) {
 class PageHome extends React.Component {
   render() {
     return (
-      <Card>
-        <CardHeader>
+      <Card.Container>
+        <Card.Header>
           <h4>Home</h4>
-        </CardHeader>
-        <CardBody>
+        </Card.Header>
+        <Card.Body>
           <PhotoGrid>
             <div>
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 10, 2, 3, 6, 5, 4, 1, 2, 0].map(
@@ -83,8 +83,8 @@ class PageHome extends React.Component {
               )}
             </div>
           </PhotoGrid>
-        </CardBody>
-      </Card>
+        </Card.Body>
+      </Card.Container>
     )
   }
 }

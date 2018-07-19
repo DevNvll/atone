@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { Button as BootstrapButton, Input as InputBootstrap } from 'reactstrap'
 
-import { Card, CardBody, CardHeader } from '../components/Card'
+import Card from '../components/Card'
 
 const Input = styled(InputBootstrap)`
   border: 1px solid #d9e2eb !important;
@@ -85,21 +85,21 @@ class Forms extends React.Component {
     return (
       <div className="row">
         <div className="col-md-6">
-          <Card>
-            <CardHeader>
+          <Card.Container>
+            <Card.Header>
               <h4>Forms</h4>
-            </CardHeader>
-            <CardBody>
+            </Card.Header>
+            <Card.Body>
               <Input type="text" placeholder="Type something..." />
-            </CardBody>
-          </Card>
+            </Card.Body>
+          </Card.Container>
         </div>
         <div className="col-md-6">
-          <Card>
-            <CardHeader>
+          <Card.Container>
+            <Card.Header>
               <h4>Buttons</h4>
-            </CardHeader>
-            <CardBody>
+            </Card.Header>
+            <Card.Body>
               <Button color="primary">Primary</Button>{' '}
               <Button color="black">Black</Button>{' '}
               <Button color="default">Default</Button>{' '}
@@ -115,8 +115,8 @@ class Forms extends React.Component {
               <Button color="danger" outline>
                 Danger
               </Button>
-            </CardBody>
-          </Card>
+            </Card.Body>
+          </Card.Container>
         </div>
       </div>
     )

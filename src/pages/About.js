@@ -1,20 +1,19 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 
-import { Card, CardBody, CardHeader } from '../components/Card'
+import Card from '../components/Card'
 
 class About extends Component {
   render() {
     return (
       <div>
-        <Card>
-          <CardHeader>
+        <Card.Container>
+          <Card.Header>
             <h4>About</h4>
-          </CardHeader>
-          <CardBody>
+          </Card.Header>
+          <Card.Body>
             <div>aaaaaaaaaaa</div>
-          </CardBody>
-        </Card>
+          </Card.Body>
+        </Card.Container>
       </div>
     )
   }
