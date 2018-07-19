@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button as BootstrapButton, Input as InputBootstrap } from 'reactstrap'
+import { Input as InputBootstrap } from 'reactstrap'
 
 const Input = styled(InputBootstrap)`
   background: #fff !important;

@@ -3,11 +3,9 @@ import styled from 'styled-components'
 import {
   Card as CardBootstrap,
   CardImg,
-  CardText,
   CardBody as CardBodyBootstrap,
   CardTitle,
-  CardSubtitle,
-  Button
+  CardSubtitle
 } from 'reactstrap'
 
 import Dashboard from '../layouts/Dashboard'
