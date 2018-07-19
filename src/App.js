@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import PageHome from './pages/Home'
 import PageAbout from './pages/About'
 import PageForms from './pages/Forms'
+import PageUsers from './pages/Users'
 
 class App extends Component {
   state = {
@@ -22,6 +23,7 @@ class App extends Component {
         <Route exact path="/" component={PageHome} />
         <Route exact path="/about" component={PageAbout} />
         <Route exact path="/forms" component={PageForms} />
+        <Route exact path="/config/users" component={PageUsers} />
       </Switch>
     )
   }

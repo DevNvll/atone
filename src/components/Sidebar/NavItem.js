@@ -4,23 +4,42 @@ import styled from 'styled-components'
 import { Collapse } from 'reactstrap'
 
 const MenuItem = styled.li`
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255);
+  opacity: 0.8;
   padding: 10px;
   margin: 0;
   cursor: pointer;
   border-left: 5px solid transparent;
+  transition: all ease 0.2s;
   &:hover {
-    background-color: #31363a;
+    background-color: #212427;
+    opacity: 1;
   }
   ${props =>
-    props.active || props.open
+    props.active
       ? `background-color: #3b4247;
   color: rgb(255, 255, 255);
+  opacity: 1;
   border-color: #6772e5;
   &:hover {
     background-color: #3b4247;
   }`
       : ``};
+  ${props =>
+    props.open
+      ? `background-color: inherit;
+      color: rgb(255, 255, 255);
+      &:hover {
+        background-color: #3b4247;
+      }`
+      : ``};
+`
+const MenuIcon = styled.i`
+  ${props =>
+    props.active &&
+    `
+      color: #6772e5 !important;
+    `};
 `
 
 class NavItem extends React.Component {
@@ -35,11 +54,12 @@ class NavItem extends React.Component {
     return (
       <React.Fragment>
         {(!multi && (
-          <Link style={{ textDecoration: 'none', color: '#fff' }} to={to}>
+          <Link style={{ textDecoration: 'none' }} to={to}>
             <MenuItem active={location.pathname === to}>
               <div style={{ padding: '0px', margin: '0px' }}>
-                <i
+                <MenuIcon
                   className={icon}
+                  active={location.pathname === to}
                   style={{ padding: '0 0px 5px 0', margin: '0', width: '30px' }}
                 />
                 {text}
@@ -48,9 +68,8 @@ class NavItem extends React.Component {
           </Link>
         )) || (
           <MenuItem
-            active={location.pathname === to || active}
+            open={location.pathname === to || active}
             onClick={this.toggle}
-            open={this.state.open || active}
           >
             <div style={{ padding: '0px', margin: '0px' }}>
               <i

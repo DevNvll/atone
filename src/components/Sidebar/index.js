@@ -39,16 +39,24 @@ const SidebarTop = styled.div`
 `
 
 const SubItem = styled.li`
-  background-color: #171a1c;
+  background-color: #1e2226;
   padding: 5px;
   list-style-type: none;
   cursor: pointer;
   &:hover {
     color: #fff;
-    background-color: #1e2226;
+    background-color: #171a1c;
   }
-  ${props => props.active && 'color: #fff'};
-  position: relative;
+  ${props =>
+    props.active &&
+    `
+    color: #fff !important;
+    background-color: #6772e5;
+    &:hover {
+      color: #fff;
+      background-color: #6772e5;
+    }
+  `} position: relative;
   display: block;
   margin: 0;
   padding: 0;
