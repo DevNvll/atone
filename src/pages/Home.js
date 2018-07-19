@@ -10,6 +10,7 @@ import {
   Button
 } from 'reactstrap'
 
+import Dashboard from '../layouts/Dashboard'
 import Card from '../components/Card'
 
 const PhotoGrid = styled.div`
@@ -50,41 +51,43 @@ function getRandomSize(min, max) {
 class PageHome extends React.Component {
   render() {
     return (
-      <Card.Container>
-        <Card.Header>
-          <h4>Home</h4>
-        </Card.Header>
-        <Card.Body>
-          <PhotoGrid>
-            <div>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 10, 2, 3, 6, 5, 4, 1, 2, 0].map(
-                i => {
-                  let height = getRandomSize(200, 600)
-                  return (
-                    <CardBootstrap
-                      style={{
-                        width: '280px',
-                        margin: '0 20px 10px'
-                      }}
-                    >
-                      <CardImg
-                        top
-                        width="280px"
-                        src={`https://placekitten.com/300/${height}`}
-                        alt="Card image cap"
-                      />
-                      <CardBodyBootstrap>
-                        <CardTitle>Card title</CardTitle>
-                        <CardSubtitle>Card subtitle</CardSubtitle>
-                      </CardBodyBootstrap>
-                    </CardBootstrap>
-                  )
-                }
-              )}
-            </div>
-          </PhotoGrid>
-        </Card.Body>
-      </Card.Container>
+      <Dashboard>
+        <Card.Container>
+          <Card.Header>
+            <h4>Home</h4>
+          </Card.Header>
+          <Card.Body>
+            <PhotoGrid>
+              <div>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 10, 2, 3, 6, 5, 4, 1, 2, 0].map(
+                  i => {
+                    let height = getRandomSize(200, 600)
+                    return (
+                      <CardBootstrap
+                        style={{
+                          width: '280px',
+                          margin: '0 20px 10px'
+                        }}
+                      >
+                        <CardImg
+                          top
+                          width="280px"
+                          src={`https://placekitten.com/300/${height}`}
+                          alt="Card image cap"
+                        />
+                        <CardBodyBootstrap>
+                          <CardTitle>Card title</CardTitle>
+                          <CardSubtitle>Card subtitle</CardSubtitle>
+                        </CardBodyBootstrap>
+                      </CardBootstrap>
+                    )
+                  }
+                )}
+              </div>
+            </PhotoGrid>
+          </Card.Body>
+        </Card.Container>
+      </Dashboard>
     )
   }
 }
