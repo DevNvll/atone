@@ -51,10 +51,10 @@ const SubItem = styled.li`
     props.active &&
     `
     color: #fff !important;
-    background-color: #6772e5;
+    background-color: ${props.theme.colors.accent};
     &:hover {
       color: #fff;
-      background-color: #6772e5;
+      background-color: ${props.theme.colors.accent};
     }
   `} position: relative;
   display: block;

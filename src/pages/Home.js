@@ -10,6 +10,7 @@ import {
 
 import Dashboard from '../layouts/Dashboard'
 import Card from '../components/Card'
+import * as Box from '../components/Box'
 
 const PhotoGrid = styled.div`
   line-height: 0;
@@ -50,6 +51,44 @@ class PageHome extends React.Component {
   render() {
     return (
       <Dashboard>
+        <div className="row">
+          <div className="col-md-3">
+            <Box.Container>
+              <Box.Content>
+                <div style={{ fontSize: '12px', fontWeight: 600 }}>USERS</div>
+                <div style={{ fontSize: '20px', fontWeight: 600 }}>64,874</div>
+                <Box.Icon className="fa fa-users" />
+              </Box.Content>
+            </Box.Container>
+          </div>
+          <div className="col-md-3">
+            <Box.Container>
+              <Box.Content>
+                <div style={{ fontSize: '12px', fontWeight: 600 }}>USERS</div>
+                <div style={{ fontSize: '20px', fontWeight: 600 }}>64,874</div>
+                <Box.Icon className="fa fa-users" />
+              </Box.Content>
+            </Box.Container>
+          </div>
+          <div className="col-md-3">
+            <Box.Container>
+              <Box.Content>
+                <div style={{ fontSize: '12px', fontWeight: 600 }}>USERS</div>
+                <div style={{ fontSize: '20px', fontWeight: 600 }}>64,874</div>
+                <Box.Icon className="fa fa-users" />
+              </Box.Content>
+            </Box.Container>
+          </div>
+          <div className="col-md-3">
+            <Box.Container color="#bebebe">
+              <Box.Content>
+                <div style={{ fontSize: '12px', fontWeight: 600 }}>USERS</div>
+                <div style={{ fontSize: '20px', fontWeight: 600 }}>64,874</div>
+                <Box.Icon className="fa fa-phone" />
+              </Box.Content>
+            </Box.Container>
+          </div>
+        </div>
         <Card.Container>
           <Card.Header>
             <h4>Home</h4>

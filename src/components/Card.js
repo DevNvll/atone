@@ -46,6 +46,7 @@ export const CardHeader = styled.div`
   justify-content: space-between;
   width: 100%;
 `
+
 export default {
   Container: CardContainer,
   Header: CardHeader,

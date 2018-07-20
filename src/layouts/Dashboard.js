@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 
 import Sidebar from '../components/Sidebar'
 import Loading from '../components/PageLoading'
@@ -57,13 +57,21 @@ const menu = [
 class Dashboard extends Component {
   render() {
     return (
-      <Container>
-        <Sidebar title="Atone" menu={menu} />
-        <Content>
-          <Header />
-          <PageContent>{this.props.children}</PageContent>
-        </Content>
-      </Container>
+      <ThemeProvider
+        theme={{
+          colors: {
+            accent: '#6772e5'
+          }
+        }}
+      >
+        <Container>
+          <Sidebar title="Atone" menu={menu} />
+          <Content>
+            <Header />
+            <PageContent>{this.props.children}</PageContent>
+          </Content>
+        </Container>
+      </ThemeProvider>
     )
   }
 }

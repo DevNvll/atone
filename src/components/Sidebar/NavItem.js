@@ -16,13 +16,19 @@ const MenuItem = styled.li`
     opacity: 1;
   }
   ${props =>
+    !props.multi &&
+    props.active &&
+    `
+    background-color: ${props.theme.colors.accent} !important
+  `};
+  ${props =>
     props.active
-      ? `background-color: #3b4247;
+      ? `background-color: inherit;
   color: rgb(255, 255, 255);
   opacity: 1;
-  border-color: #6772e5;
+  border-color: ${props.theme.colors.accent};
   &:hover {
-    background-color: #3b4247;
+    background-color: #212427;
   }`
       : ``};
   ${props =>
@@ -30,15 +36,16 @@ const MenuItem = styled.li`
       ? `background-color: inherit;
       color: rgb(255, 255, 255);
       &:hover {
-        background-color: #3b4247;
+        background-color: #212427;
       }`
       : ``};
 `
 const MenuIcon = styled.i`
   ${props =>
     props.active &&
+    props.multi &&
     `
-      color: #6772e5 !important;
+      color: ${props.theme.colors.accent} !important;
     `};
 `
 
@@ -70,11 +77,14 @@ class NavItem extends React.Component {
           <MenuItem
             open={location.pathname === to || active}
             onClick={this.toggle}
+            multi
           >
             <div style={{ padding: '0px', margin: '0px' }}>
-              <i
+              <MenuIcon
                 className={icon}
+                active={active}
                 style={{ padding: '0 0px 5px 0', margin: '0', width: '30px' }}
+                multi
               />
               {text}
               <span style={{ float: 'right', paddingRight: '10px' }}>
