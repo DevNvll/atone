@@ -91,10 +91,23 @@ const CollapseOption = styled(Collapse)`
   position: absolute;
   z-index: 3000;
   margin: 5px 10px 5px;
-  background-color: #000;
+  color: #fafafa;
+  background-color: #222;
   width: 90%;
   border-radius: 3px;
-  padding: 5px;
+  -webkit-box-shadow: 0 2px 4px rgba(5, 15, 44, 0.1);
+  box-shadow: 0 2px 4px rgba(5, 15, 44, 0.1);
+`
+
+const MenuItem = styled.div`
+  padding: 10px 15px;
+  border-radius: 3px;
+  transition: ease all 0.2s;
+  cursor: pointer;
+  &:hover {
+    background-color: #121212;
+    color: #fff !important;
+  }
 `
 
 class SidebarTop extends React.Component {
@@ -141,7 +154,11 @@ class SidebarTop extends React.Component {
             </DropdownButton>
           </div>
         </Container>
-        <CollapseOption isOpen={this.state.open}>test</CollapseOption>
+        <CollapseOption isOpen={this.state.open}>
+          <MenuItem>Action 1</MenuItem>
+          <MenuItem>Action 2</MenuItem>
+          <MenuItem>Action 3</MenuItem>
+        </CollapseOption>
       </div>
     )
   }

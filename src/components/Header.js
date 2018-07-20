@@ -1,20 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Input as InputBootstrap } from 'reactstrap'
-
-const Input = styled(InputBootstrap)`
-  background: #fff !important;
-  color: #22314e !important;
-  border-radius: 4px !important;
-  font-size: 16px !important;
-  padding: 10px 15px 10px 15px !important;
-  ${props => props.fluid && 'width: 100% !important;'};
-  &:focus {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-  border: 0 !important;
-`
 
 const HeaderContainer = styled.div`
   width: 100%;
@@ -48,22 +33,16 @@ const Controls = styled.div`
   margin-right: 20px;
 `
 
-const Header = ({ handleColorChange, color }) => {
+const Header = () => {
   return (
     <HeaderContainer>
       <HeaderControls>
         <Controls>
-          <input
-            type="color"
-            style={{ margin: '5px' }}
-            onChange={handleColorChange}
-            value={color}
-            className="btn btn-grey btn-mini"
-          />
+          <i className="fa fa-bars" style={{ cursor: 'pointer' }} />
         </Controls>
         <Controls right>
           <div>
-            <a href="#" style={{ color: '#676767' }}>
+            <a href="/logout" style={{ color: '#676767' }}>
               Logout
             </a>
           </div>

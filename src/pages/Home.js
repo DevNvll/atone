@@ -62,7 +62,7 @@ class PageHome extends React.Component {
             </Box.Container>
           </div>
           <div className="col-md-3">
-            <Box.Container>
+            <Box.Container color="#963da5">
               <Box.Content>
                 <div style={{ fontSize: '12px', fontWeight: 600 }}>USERS</div>
                 <div style={{ fontSize: '20px', fontWeight: 600 }}>64,874</div>
@@ -71,7 +71,7 @@ class PageHome extends React.Component {
             </Box.Container>
           </div>
           <div className="col-md-3">
-            <Box.Container>
+            <Box.Container color="#293a56">
               <Box.Content>
                 <div style={{ fontSize: '12px', fontWeight: 600 }}>USERS</div>
                 <div style={{ fontSize: '20px', fontWeight: 600 }}>64,874</div>
@@ -80,7 +80,7 @@ class PageHome extends React.Component {
             </Box.Container>
           </div>
           <div className="col-md-3">
-            <Box.Container color="#bebebe">
+            <Box.Container color="#424242">
               <Box.Content>
                 <div style={{ fontSize: '12px', fontWeight: 600 }}>USERS</div>
                 <div style={{ fontSize: '20px', fontWeight: 600 }}>64,874</div>

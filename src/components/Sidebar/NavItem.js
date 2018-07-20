@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Collapse } from 'reactstrap'
 
 const MenuItem = styled.li`
-  color: rgba(255, 255, 255);
+  color: ${props => props.theme.colors.sidebar.navItemText};
   opacity: 0.8;
   padding: 10px;
   margin: 0;
@@ -12,33 +12,29 @@ const MenuItem = styled.li`
   border-left: 5px solid transparent;
   transition: all ease 0.2s;
   &:hover {
-    background-color: #212427;
+    background-color: ${props =>
+      props.theme.colors.sidebar.navItemHoverBackground};
     opacity: 1;
   }
   ${props =>
     !props.multi &&
     props.active &&
     `
-    background-color: ${props.theme.colors.accent} !important
+    background-color: ${props.theme.colors.sidebar.activeBackground ||
+      props.theme.colors.accent} !important
   `};
   ${props =>
     props.active
       ? `background-color: inherit;
   color: rgb(255, 255, 255);
-  opacity: 1;
-  border-color: ${props.theme.colors.accent};
-  &:hover {
-    background-color: #212427;
-  }`
+  opacity: 1;`
       : ``};
   ${props =>
     props.open
       ? `background-color: inherit;
       color: rgb(255, 255, 255);
       opacity: 1;
-      &:hover {
-        background-color: #212427;
-      }`
+      `
       : ``};
 `
 const MenuIcon = styled.i`

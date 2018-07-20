@@ -5,13 +5,14 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 import Navitem from './NavItem'
 import SidebarTop from './SidebarTop'
 import SidebarBottom from './SidebarBottom'
+import TreeMenuItem from './TreeMenuItem'
 import { Link, withRouter } from 'react-router-dom'
 
 const SidebarContainer = styled.div`
   z-index: 100;
-  color: rgba(255, 255, 255, 0.85);
+  color: ${props => props.theme.colors.sidebar.text};
   font-weight: 500;
-  background-color: #272b2e;
+  background-color: ${props => props.theme.colors.sidebar.background};
   display: grid;
   position: sticky;
   top: 0;
@@ -32,40 +33,8 @@ const MenuList = styled.ul`
   max-height: 830px;
 `
 
-const SubItem = styled.li`
-  background-color: #1e2226;
-  padding: 5px;
-  list-style-type: none;
-  cursor: pointer;
-  &:hover {
-    color: #fff;
-    background-color: #171a1c;
-  }
-  ${props =>
-    props.active &&
-    `
-    color: #fff !important;
-    background-color: ${props.theme.colors.accent};
-    &:hover {
-      color: #fff;
-      background-color: ${props.theme.colors.accent};
-    }
-  `} position: relative;
-  display: block;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  padding-left: 44px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  color: #93a3af;
-  -webkit-transition-property: color, background;
-  transition-property: color, background;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-`
-
 const DropDownMenu = styled.ul`
+  background-color: ${props => props.theme.colors.sidebar.treeMenuBackground};
   margin: 0;
   padding: 0;
 `
@@ -73,7 +42,7 @@ const DropDownMenu = styled.ul`
 class Sidebar extends React.Component {
   render() {
     return (
-      <SidebarContainer>
+      <SidebarContainer open={this.props.open}>
         <SidebarTop />
         <PerfectScrollbar>
           <div>
@@ -99,13 +68,13 @@ class Sidebar extends React.Component {
                             to={s.to}
                             style={{ textDecoration: 'none', color: 'inherit' }}
                           >
-                            <SubItem
+                            <TreeMenuItem
                               active={this.props.location.pathname.startsWith(
                                 s.to
                               )}
                             >
                               {s.text}
-                            </SubItem>
+                            </TreeMenuItem>
                           </Link>
                         ))}
                       </DropDownMenu>
