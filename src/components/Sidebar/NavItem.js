@@ -35,6 +35,7 @@ const MenuItem = styled.li`
     props.open
       ? `background-color: inherit;
       color: rgb(255, 255, 255);
+      opacity: 1;
       &:hover {
         background-color: #212427;
       }`
