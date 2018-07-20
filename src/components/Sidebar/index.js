@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import 'react-perfect-scrollbar/dist/css/styles.css'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import Navitem from './NavItem'
+import SidebarTop from './SidebarTop'
 import SidebarBottom from './SidebarBottom'
 import { Link, withRouter } from 'react-router-dom'
 
@@ -29,13 +30,6 @@ const MenuList = styled.ul`
   padding: 0;
   margin: 0;
   max-height: 830px;
-`
-
-const SidebarTop = styled.div`
-  padding: 0 10px 0;
-  text-align: center;
-  background-color: #1d2123;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 20px 0px;
 `
 
 const SubItem = styled.li`
@@ -80,9 +74,7 @@ class Sidebar extends React.Component {
   render() {
     return (
       <SidebarContainer>
-        <SidebarTop>
-          <h1>{this.props.title}</h1>
-        </SidebarTop>
+        <SidebarTop />
         <PerfectScrollbar>
           <div>
             <MenuList>

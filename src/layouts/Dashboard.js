@@ -55,19 +55,28 @@ const menu = [
 ]
 
 class Dashboard extends Component {
+  state = {
+    accentColor: '#6772e5'
+  }
+  handleColorChange = e => {
+    this.setState({ accentColor: e.target.value })
+  }
   render() {
     return (
       <ThemeProvider
         theme={{
           colors: {
-            accent: '#6772e5'
+            accent: this.state.accentColor
           }
         }}
       >
         <Container>
           <Sidebar title="Atone" menu={menu} />
           <Content>
-            <Header />
+            <Header
+              handleColorChange={this.handleColorChange}
+              color={this.state.accentColor}
+            />
             <PageContent>{this.props.children}</PageContent>
           </Content>
         </Container>

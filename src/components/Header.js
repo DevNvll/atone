@@ -48,15 +48,17 @@ const Controls = styled.div`
   margin-right: 20px;
 `
 
-const Header = () => {
+const Header = ({ handleColorChange, color }) => {
   return (
     <HeaderContainer>
       <HeaderControls>
         <Controls>
-          <Input
-            type="text"
+          <input
+            type="color"
             style={{ margin: '5px' }}
-            placeholder="Search..."
+            onChange={handleColorChange}
+            value={color}
+            className="btn btn-grey btn-mini"
           />
         </Controls>
         <Controls right>
